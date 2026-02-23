@@ -1,8 +1,9 @@
 import type { WeatherResponse } from "../../type/WeatherResponse";
+import "./DetailInfo.css";
 
 export default function DetailInfo({ weather }: { weather: WeatherResponse | null }) {
     return (
-        <>
+        <div className="detail-info card">
             <p>날씨 ID: {weather?.weather[0].id}</p>
             <p>날씨 상태: {weather?.weather[0].main}</p>
             <p>날씨 설명: {weather?.weather[0].description}</p>
@@ -26,6 +27,6 @@ export default function DetailInfo({ weather }: { weather: WeatherResponse | nul
             <p>도시 ID: {weather?.id}</p>
             <p>도시 이름: {weather?.name}</p>
             <p>코드: {weather?.cod}</p>
-        </>
+        </div>
     );
 }

@@ -1,0 +1,20 @@
+.detail-info {
+  width: 100%;
+  max-width: 400px;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

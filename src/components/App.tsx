@@ -28,7 +28,7 @@ function App() {
       <div className='title'>Weather App</div>
       <div>
         <div>나의 위치</div>
-        <div className='city-name'>Seoul</div>
+        <div className='city-name'>서울</div>
       </div>
       <div className='summary-info'>
         <p className='temperature'>{weather?.main.temp}°C</p>
