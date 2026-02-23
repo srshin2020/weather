@@ -1,8 +1,8 @@
 export interface WeatherResponse {
   // 위치 정보 (경도, 위도)
   coord: {
-    lon: number;
-    lat: number;
+    lon: number; // 경도 (ex: 126.9780, 126.9780, 126.9780, 126.9780, 126.9780)
+    lat: number; // 위도 (ex: 37.5683, 37.5683, 37.5683, 37.5683, 37.5683)
   };
   // 날씨 정보 (아이콘, 날씨 상태, 날씨 설명)
   weather: [

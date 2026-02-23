@@ -18,43 +18,43 @@ function App() {
   return (
     <>
       <h1>Weather App</h1>
-      <p>Longitude: {weather?.coord.lon}</p>
-      <p>Latitude: {weather?.coord.lat}</p>
+      <p>경도: {weather?.coord.lon}</p>
+      <p>위도: {weather?.coord.lat}</p>
 
-      <p>ID: {weather?.weather[0].id}</p>
-      <p>Main: {weather?.weather[0].main}</p>
-      <p>Description: {weather?.weather[0].description}</p>
-      <p>Icon: {weather?.weather[0].icon}</p>
+      <p>날씨 ID: {weather?.weather[0].id}</p>
+      <p>날씨 상태: {weather?.weather[0].main}</p>
+      <p>날씨 설명: {weather?.weather[0].description}</p>
+      <p>날씨 아이콘: {weather?.weather[0].icon}</p>
 
-      <p>Base: {weather?.base}</p>
-      <p>Temperature: {weather?.main.temp}°C</p>
-      <p>Feels Like: {weather?.main.feels_like}°C</p>
-      <p>Temperature Min: {weather?.main.temp_min}°C</p>
-      <p>Temperature Max: {weather?.main.temp_max}°C</p>
-      <p>Pressure: {weather?.main.pressure}hPa</p>
-      <p>Humidity: {weather?.main.humidity}%</p>
-      <p>Sea Level: {weather?.main.sea_level}hPa</p>
-      <p>Grnd Level: {weather?.main.grnd_level}hPa</p>
+      <p>기반 정보: {weather?.base}</p>
+      <p>기온: {weather?.main.temp}°C</p>
+      <p>체감 온도: {weather?.main.feels_like}°C</p>
+      <p>최저 온도: {weather?.main.temp_min}°C</p>
+      <p>최고 온도: {weather?.main.temp_max}°C</p>
+      <p>기압: {weather?.main.pressure}hPa</p>
+      <p>습도: {weather?.main.humidity}%</p>
+      <p>해면 기압: {weather?.main.sea_level}hPa</p>
+      <p>지면 기압: {weather?.main.grnd_level}hPa</p>
 
-      <p>Visibility: {weather?.visibility}m</p>
+      <p>가시성: {weather?.visibility}m</p>
 
-      <p>Wind Speed: {weather?.wind.speed} m/s</p>
-      <p>Wind Degree: {weather?.wind.deg}°</p>
+      <p>바람 속도: {weather?.wind.speed} m/s</p>
+      <p>바람 방향: {weather?.wind.deg}°</p>
 
-      <p>Clouds: {weather?.clouds.all}%</p>
+      <p>구름 정도: {weather?.clouds.all}%</p>
 
-      <p>Dt: {weather?.dt}</p>
+      <p>날짜 및 시간: {weather?.dt}</p>
 
-      <p>Type: {weather?.sys.type}</p>
-      <p>ID: {weather?.sys.id}</p>
-      <p>Country: {weather?.sys.country}</p>
-      <p>Sunrise: {weather?.sys.sunrise}</p>
-      <p>Sunset: {weather?.sys.sunset}</p>
+      <p>시스템 유형: {weather?.sys.type}</p>
+      <p>시스템 ID: {weather?.sys.id}</p>
+      <p>국가: {weather?.sys.country}</p>
+      <p>일출 시간: {weather?.sys.sunrise}</p>
+      <p>일몰 시간: {weather?.sys.sunset}</p>
 
-      <p>Timezone: {weather?.timezone}</p>
-      <p>ID: {weather?.id}</p>
-      <p>Name: {weather?.name}</p>
-      <p>Cod: {weather?.cod}</p>
+      <p>시간대: {weather?.timezone}</p>
+      <p>도시 ID: {weather?.id}</p>
+      <p>도시 이름: {weather?.name}</p>
+      <p>코드: {weather?.cod}</p>
     </>
   );
 }
