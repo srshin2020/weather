@@ -30,6 +30,21 @@
   font-weight: bold;
 }
 
+.detail-info-overlay {
+  position: fixed;
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* 배경 클릭 통과 */
+}
+
+.detail-info-overlay > * {
+  pointer-events: auto; /* DetailInfo만 클릭 가능 */
+}
+
 .card {
   padding: 0.5em;
   border: 1px solid #ccc;

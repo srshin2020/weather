@@ -45,24 +45,24 @@ function App() {
         <p className="temp-max">최고 {weather?.main.temp_max}°C</p>
       </div>
 
-      {!isShowDetail && (
-        <div
-          className="detail-info-button card"
-          onClick={() => {
-            showDetail();
-          }}
-        >
-          {" "}
-          {"show detail information"}
-        </div>
-      )}
+      <div
+        className="detail-info-button card"
+        onClick={() => {
+          showDetail();
+        }}
+      >
+        {" "}
+        {"show detail information"}
+      </div>
 
       {(isShowDetail || isExiting) && (
-        <DetailInfo
-          weather={weather}
-          isExiting={isExiting}
-          showDetail={showDetail}
-        />
+        <div className="detail-info-overlay">
+          <DetailInfo
+            weather={weather}
+            isExiting={isExiting}
+            showDetail={showDetail}
+          />
+        </div>
       )}
     </div>
   );
