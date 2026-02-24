@@ -1,4 +1,5 @@
 import type { ForecastResponse } from "../../type/ForecastResponse";
+import "./ForecastInfo.css";
 
 export default function ForecastInfo({
   forecast4days,
@@ -7,7 +8,7 @@ export default function ForecastInfo({
 }) {
   return (
     <div className="forecast-info card">
-      {forecast4days?.list.slice(0, 4).map((item, index) => (
+      {forecast4days?.list.map((item, index) => (
         <div className="forecast-info-item" key={index}>
           <div className="forecast-info-item-time">
             {new Date((item.dt ?? 0) * 1000).toLocaleTimeString("ko-KR", {

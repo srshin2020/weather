@@ -1,0 +1,22 @@
+.forecast-info {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.forecast-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.forecast-info-item-time {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.forecast-info-item-temperature {
+  font-size: 12px;
+  font-weight: bold;
+}
