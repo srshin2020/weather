@@ -5,9 +5,11 @@ export default function SummaryInfo({
 }: {
   weather: WeatherResponse | null;
 }) {
+  const iconUrl = `https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`;
   return (
     <div className="summary-info">
       <p className="temperature">{weather?.main.temp}°C</p>
+      <img src={iconUrl} alt={weather?.weather[0].description} />
       <p className="weather-description">{weather?.weather[0].description}</p>
       <p className="feels-like">체감 {weather?.main.feels_like}°C</p>
       <p className="temp">
