@@ -3,16 +3,27 @@
   flex-direction: row;
   gap: 10px;
   width: 100%;
+  overflow-x: auto; /* 가로 스크롤 활성화 */
+  overflow-y: hidden; /* 세로 스크롤 방지 */
+  scrollbar-width: none; /* Firefox: 스크롤바 숨김 */
+  -ms-overflow-style: none; /* IE/Edge: 스크롤바 숨김 */
+  scroll-behavior: smooth; /* 부드러운 스크롤 */
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+}
+/* Chrome, Safari, Opera: 스크롤바 숨김 */
+.forecast-info::-webkit-scrollbar {
+  display: none;
 }
 
 .forecast-info-item {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex-shrink: 0; /* 아이템이 줄어들지 않도록 */
+  min-width: fit-content; /* 내용에 맞는 최소 너비 */
 }
 
 .forecast-info-item-time {
-  font-size: 12px;
   font-weight: bold;
 }
 
