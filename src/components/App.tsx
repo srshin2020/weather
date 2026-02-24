@@ -3,11 +3,17 @@ import "./App.css";
 import api from "../util/api";
 import type { WeatherResponse } from "../type/WeatherResponse";
 import DetailInfo from "./app/DetailInfo";
+import type { ForecastResponse } from "../type/ForecastResponse";
+import SummaryInfo from "./app/SummaryInfo";
+import ForecastInfo from "./app/ForecastInfo";
 
 function App() {
   const [weather, setWeather] = useState<WeatherResponse | null>(null);
   const [isShowDetail, setIsShowDetail] = useState(false);
   const [isExiting, setIsExiting] = useState(false);
+  const [forecast4days, setForecast4days] = useState<ForecastResponse | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -16,6 +22,14 @@ function App() {
       setWeather(data);
     };
     fetchWeather();
+
+    const fetchForecast5days3hours = async () => {
+      const data = await api.getforecast5days3hours("Seoul");
+      console.log(data);
+      setForecast4days(data);
+    };
+    fetchForecast5days3hours();
+
     // 의존성 배열이 비어있으면 컴포넌트가 마운트될 때 한 번만 실행
   }, []);
 
@@ -38,21 +52,15 @@ function App() {
         <div>나의 위치</div>
         <div className="city-name">서울</div>
       </div>
-      <div className="summary-info">
-        <p className="temperature">{weather?.main.temp}°C</p>
-        <p className="feels-like">체감 {weather?.main.feels_like}°C</p>
-        <p className="temp-min">최저 {weather?.main.temp_min}°C</p>
-        <p className="temp-max">최고 {weather?.main.temp_max}°C</p>
-      </div>
-
+      <SummaryInfo weather={weather} />
+      <ForecastInfo forecast4days={forecast4days} />
       <div
         className="detail-info-button card"
         onClick={() => {
           showDetail();
         }}
       >
-        {" "}
-        {"show detail information"}
+        show detail information
       </div>
 
       {(isShowDetail || isExiting) && (

@@ -9,9 +9,23 @@ class Api {
     return Api.instance;
   }
 
+  public async getLatAndLon(city: string) {
+    const response = await fetch(
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${this.API_KEY}`
+    );
+    return response.json();
+  }
+
   public async getWeather(city: string) {
     const response = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.API_KEY}&units=metric&lang=kr`
+    );
+    return response.json();
+  }
+
+  public async getforecast5days3hours(city: string) {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${this.API_KEY}&units=metric&lang=kr`
     );
     return response.json();
   }

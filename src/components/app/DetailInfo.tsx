@@ -11,10 +11,11 @@ export default function DetailInfo({
   showDetail: () => void;
 }) {
   return (
-    <div className={`detail-info card ${isExiting ? "exiting" : ""}`}>
-      <div onClick={showDetail} className="detail-info-header card">
-        close detail information
-      </div>
+    <div
+      onClick={showDetail}
+      className={`detail-info card ${isExiting ? "exiting" : ""}`}
+    >
+      <div className="detail-info-header card">detail information</div>
       <p>날씨 ID: {weather?.weather[0].id}</p>
       <p>날씨 상태: {weather?.weather[0].main}</p>
       <p>날씨 설명: {weather?.weather[0].description}</p>
