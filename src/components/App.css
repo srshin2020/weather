@@ -17,10 +17,6 @@
   font-size: 2em;
   font-weight: bold;
 }
-.city-name {
-  font-size: 2em;
-  font-weight: bold;
-}
 .temperature {
   font-size: 4em;
   font-weight: bold;
@@ -34,6 +30,13 @@
   font-weight: bold;
 }
 
+.menu-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  width: 100%;
+  justify-content: space-between;
+}
 .detail-info-overlay {
   position: fixed;
   left: 10%;
