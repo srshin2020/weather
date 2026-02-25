@@ -1,1 +1,12 @@
-
+.temperature {
+  font-size: 4em;
+  font-weight: bold;
+}
+.weather-description {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.feels-like {
+  font-size: 1.5em;
+  font-weight: bold;
+}

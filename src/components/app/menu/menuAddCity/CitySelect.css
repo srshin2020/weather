@@ -1,0 +1,11 @@
+.city-select-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* 배경 클릭 통과 */
+}

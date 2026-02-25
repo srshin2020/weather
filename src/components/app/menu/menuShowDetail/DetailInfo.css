@@ -1,3 +1,18 @@
+.detail-info-overlay {
+  position: fixed;
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* 배경 클릭 통과 */
+}
+
+.detail-info-overlay > * {
+  pointer-events: auto; /* DetailInfo만 클릭 가능 */
+}
+
 .detail-info {
   position: relative;
   z-index: 11;
@@ -15,7 +30,7 @@
   animation: slideUp 1s ease-out forwards;
 }
 
-.exiting {
+.detail-info.exiting {
   animation: slideDown 1s ease-in forwards;
 }
 

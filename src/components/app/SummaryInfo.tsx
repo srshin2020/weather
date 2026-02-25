@@ -1,4 +1,5 @@
 import type { WeatherResponse } from "../../type/WeatherResponse";
+import "./SummaryInfo.css";
 
 export default function SummaryInfo({
   weather,

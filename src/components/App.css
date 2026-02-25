@@ -17,40 +17,6 @@
   font-size: 2em;
   font-weight: bold;
 }
-.temperature {
-  font-size: 4em;
-  font-weight: bold;
-}
-.weather-description {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-.feels-like {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-
-.menu-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1em;
-  width: 100%;
-  justify-content: space-between;
-}
-.detail-info-overlay {
-  position: fixed;
-  left: 10%;
-  right: 10%;
-  bottom: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  pointer-events: none; /* 배경 클릭 통과 */
-}
-
-.detail-info-overlay > * {
-  pointer-events: auto; /* DetailInfo만 클릭 가능 */
-}
 
 .card {
   padding: 0.5em;
