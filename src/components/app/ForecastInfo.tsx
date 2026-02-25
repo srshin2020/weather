@@ -6,10 +6,13 @@ export default function ForecastInfo({
 }: {
   forecast4days: ForecastResponse | null;
 }) {
+  if (!forecast4days) {
+    return null; // 데이터가 없으면 아무것도 렌더링하지 않음
+  }
   return (
     <div className="forecast-info card">
       {forecast4days?.list.map((item, index) => (
-        <div key={index}>
+        <div key={index} className="forecast-info-item">
           <div>
             {new Date((item.dt ?? 0) * 1000)
               .toLocaleDateString("ko-KR", {

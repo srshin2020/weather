@@ -13,3 +13,13 @@
 .forecast-info::-webkit-scrollbar {
   display: none;
 }
+
+.forecast-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex-shrink: 0;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+}
