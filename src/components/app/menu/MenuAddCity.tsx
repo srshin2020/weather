@@ -1,17 +1,7 @@
 import { useState } from "react";
 import CitySelect from "./menuAddCity/CitySelect";
 
-export default function MenuAddCity({
-  cities,
-  selectedCityIndex,
-  setCities,
-  setSelectedCityIndex,
-}: {
-  cities: string[];
-  selectedCityIndex: number;
-  setCities: (cities: string[]) => void;
-  setSelectedCityIndex: (selectedCityIndex: number) => void;
-}) {
+export default function MenuAddCity({ cities }: { cities: string[] }) {
   const [isShowCitySelect, setIsShowCitySelect] = useState(false);
 
   const selectCity = () => {
@@ -31,14 +21,7 @@ export default function MenuAddCity({
       >
         지역 선택
       </div>
-      {isShowCitySelect && (
-        <CitySelect
-          cities={cities}
-          selectedCityIndex={selectedCityIndex}
-          setCities={setCities}
-          setSelectedCityIndex={setSelectedCityIndex}
-        />
-      )}
+      {isShowCitySelect && <CitySelect cities={cities} />}
     </>
   );
 }
