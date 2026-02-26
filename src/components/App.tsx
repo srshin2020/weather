@@ -11,19 +11,29 @@ import City from "./app/City";
 function App() {
   const [weather, setWeather] = useState<WeatherResponse | null>(null);
   const [forecast4days, setForecast4days] = useState<ForecastResponse | null>(
-    null
+    null,
   );
+
+  const [cities, setCities] = useState<string[]>([
+    "seoul",
+    "new york",
+    "tokyo",
+    "paris",
+    "london",
+  ]);
+  const [selectedCityIndex, setSelectedCityIndex] = useState<number>(0);
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const data = await api.getWeather("Seoul");
-      console.log(data);
-      setWeather(data);
+      const data = await api.getWeather(cities[selectedCityIndex]);
+      if (data) {
+        setWeather(data);
+      }
     };
     fetchWeather();
 
     const fetchForecast5days3hours = async () => {
-      const data = await api.getforecast5days3hours("Seoul");
+      const data = await api.getforecast5days3hours(cities[selectedCityIndex]);
       console.log(data);
       setForecast4days(data);
     };
@@ -38,7 +48,13 @@ function App() {
       <City />
       <SummaryInfo weather={weather} />
       <ForecastInfo forecast4days={forecast4days} />
-      <Menu weather={weather} />
+      <Menu
+        weather={weather}
+        cities={cities}
+        setCities={setCities}
+        selectedCityIndex={selectedCityIndex}
+        setSelectedCityIndex={setSelectedCityIndex}
+      />
     </div>
   );
 }
