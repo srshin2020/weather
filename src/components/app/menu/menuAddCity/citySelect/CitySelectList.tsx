@@ -6,14 +6,23 @@ export default function CitySelectList({
   weathers,
   setSelectedCityIndex,
   setIsShowCitySelect,
+  cities,
+  setCities,
 }: {
   weathers: WeatherResponse[];
   setSelectedCityIndex: React.Dispatch<React.SetStateAction<number>>;
   setIsShowCitySelect: React.Dispatch<React.SetStateAction<boolean>>;
+  cities: string[];
+  setCities: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
   const handleDelete = (index: number) => {
-    console.log(index);
+    if (cities.length === 1) {
+      alert("최소 1개의 도시를 유지해야 합니다.");
+      return;
+    }
+    setCities(cities.filter((_, i) => i !== index));
   };
+
   const handleClick = (index: number) => {
     console.log(index);
     setSelectedCityIndex(index);
@@ -66,12 +75,11 @@ export default function CitySelectList({
               </div>
             </div>
           </div>
-          <div className="city-select-item-delete">
-            <img
-              src={`public/delete.png`}
-              alt="삭제"
-              onClick={() => handleDelete(index)}
-            />
+          <div
+            onClick={() => handleDelete(index)}
+            className="city-select-item-delete"
+          >
+            <img src={`public/delete.png`} alt="삭제" />
           </div>
         </div>
       ))}

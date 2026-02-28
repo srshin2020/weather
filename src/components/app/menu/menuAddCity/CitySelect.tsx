@@ -40,6 +40,8 @@ export default function CitySelect({
     <div className="city-select-overlay">
       <CitySelectList
         weathers={weatherList}
+        cities={cities}
+        setCities={setCities}
         setSelectedCityIndex={setSelectedCityIndex}
         setIsShowCitySelect={setIsShowCitySelect}
       />
