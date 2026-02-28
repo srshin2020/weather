@@ -19,7 +19,7 @@ export default function MenuAddCity({ cities }: { cities: string[] }) {
           selectCity();
         }}
       >
-        지역 선택
+        도시 검색
       </div>
       {isShowCitySelect && <CitySelect cities={cities} />}
     </>

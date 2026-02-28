@@ -1,0 +1,24 @@
+.city-select-title {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  z-index: 11;
+  text-align: center;
+  background-color: #444;
+  padding: 10px;
+  margin: 10px;
+}
+
+.city-select-title-recommended-cities {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.city-select-title-input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.2em;
+}

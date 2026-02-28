@@ -1,0 +1,23 @@
+.city-select-item-header,
+.city-select-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city-select-item-name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.city-select-item {
+  width: 100%;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.city-select-item-weather,
+.city-select-item-max-temperature,
+.city-select-item-min-temperature {
+  font-size: 0.8em;
+}

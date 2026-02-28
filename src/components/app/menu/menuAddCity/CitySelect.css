@@ -1,11 +1,12 @@
 .city-select-overlay {
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  bottom: 0;
   z-index: 10;
-  background-color: rgba(12, 11, 11, 1);
+  padding: 10px;
+  background-color: rgb(63, 61, 61);
   justify-content: center;
   pointer-events: none; /* 배경 클릭 통과 */
   overflow-y: auto;
@@ -14,39 +15,6 @@
   -ms-overflow-style: none;
 }
 
-.city-select-item-header,
-.city-select-item-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.city-select-item-name {
-  font-size: 2em;
-  font-weight: bold;
-}
-
 .city-select-overlay > * {
   pointer-events: auto; /* CitySelect만 클릭 가능 */
-}
-
-.city-select-item {
-  width: 100%;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.city-select-item-weather,
-.city-select-item-max-temperature,
-.city-select-item-min-temperature {
-  font-size: 0.8em;
-}
-
-.city-select-title {
-  position: fixed;
-  bottom: 0;
-  z-index: 11;
-  width: 100%;
-  text-align: center;
-  background-color: #444;
 }

@@ -14,13 +14,7 @@ function App() {
     null,
   );
 
-  const [cities, _] = useState<string[]>([
-    "seoul",
-    "new york",
-    "tokyo",
-    "paris",
-    "london",
-  ]);
+  const [cities, _] = useState<string[]>(["seoul"]);
 
   useEffect(() => {
     const fetchWeather = async () => {
