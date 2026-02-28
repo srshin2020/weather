@@ -1,3 +1,23 @@
+.city-select-item-container {
+  overflow: hidden;
+  display: flex;
+  width: calc(100% + 60px);
+  gap: 10px;
+}
+
+.city-select-item {
+  flex: 1 1 0;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.city-select-item-delete {
+  flex: 0 0 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .city-select-item-header,
 .city-select-item-content {
   display: flex;
@@ -10,14 +30,14 @@
   font-weight: bold;
 }
 
-.city-select-item {
-  width: 100%;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
 .city-select-item-weather,
 .city-select-item-max-temperature,
 .city-select-item-min-temperature {
   font-size: 0.8em;
+}
+
+.city-select-item-delete img {
+  width: 60%;
+  object-fit: contain;
+  vertical-align: middle;
 }
