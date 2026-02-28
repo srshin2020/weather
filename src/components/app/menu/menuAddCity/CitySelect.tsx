@@ -8,9 +8,13 @@ import CitySelectList from "./citySelect/CitySelectList";
 export default function CitySelect({
   cities,
   setCities,
+  setSelectedCityIndex,
+  setIsShowCitySelect,
 }: {
   cities: string[];
   setCities: React.Dispatch<React.SetStateAction<string[]>>;
+  setSelectedCityIndex: React.Dispatch<React.SetStateAction<number>>;
+  setIsShowCitySelect: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const [weatherList, setWeatherList] = useState<WeatherResponse[]>([]);
 
@@ -34,7 +38,11 @@ export default function CitySelect({
 
   return (
     <div className="city-select-overlay">
-      <CitySelectList weathers={weatherList} />
+      <CitySelectList
+        weathers={weatherList}
+        setSelectedCityIndex={setSelectedCityIndex}
+        setIsShowCitySelect={setIsShowCitySelect}
+      />
       <CitySelectTitle setCities={setCities} />
     </div>
   );

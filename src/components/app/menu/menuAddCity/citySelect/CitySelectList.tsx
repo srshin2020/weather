@@ -3,13 +3,26 @@ import "./CitySelectList.css";
 
 export default function CitySelectList({
   weathers,
+  setSelectedCityIndex,
+  setIsShowCitySelect,
 }: {
   weathers: WeatherResponse[];
+  setSelectedCityIndex: React.Dispatch<React.SetStateAction<number>>;
+  setIsShowCitySelect: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
+  const handleClick = (index: number) => {
+    console.log(index);
+    setSelectedCityIndex(index);
+    setIsShowCitySelect(false);
+  };
   return (
     <>
       {weathers.map((weather, index) => (
-        <div className="city-select-item card" key={index}>
+        <div
+          className="city-select-item card"
+          key={index}
+          onClick={() => handleClick(index)}
+        >
           <div className="city-select-item-header">
             <div className="city-select-item-header-left">
               <div className="city-select-item-name">{weather.name}</div>

@@ -4,9 +4,11 @@ import CitySelect from "./menuAddCity/CitySelect";
 export default function MenuAddCity({
   cities,
   setCities,
+  setSelectedCityIndex,
 }: {
   cities: string[];
   setCities: React.Dispatch<React.SetStateAction<string[]>>;
+  setSelectedCityIndex: React.Dispatch<React.SetStateAction<number>>;
 }) {
   const [isShowCitySelect, setIsShowCitySelect] = useState(false);
 
@@ -27,7 +29,14 @@ export default function MenuAddCity({
       >
         도시 검색
       </div>
-      {isShowCitySelect && <CitySelect cities={cities} setCities={setCities} />}
+      {isShowCitySelect && (
+        <CitySelect
+          cities={cities}
+          setCities={setCities}
+          setSelectedCityIndex={setSelectedCityIndex}
+          setIsShowCitySelect={setIsShowCitySelect}
+        />
+      )}
     </>
   );
 }

@@ -7,15 +7,21 @@ export default function Menu({
   weather,
   cities,
   setCities,
+  setSelectedCityIndex,
 }: {
   weather: WeatherResponse | null;
   cities: string[];
   setCities: React.Dispatch<React.SetStateAction<string[]>>;
+  setSelectedCityIndex: React.Dispatch<React.SetStateAction<number>>;
 }) {
   return (
     <div className="menu-container">
       <MenuShowDetail weather={weather} />
-      <MenuAddCity cities={cities} setCities={setCities} />
+      <MenuAddCity
+        cities={cities}
+        setCities={setCities}
+        setSelectedCityIndex={setSelectedCityIndex}
+      />
     </div>
   );
 }
