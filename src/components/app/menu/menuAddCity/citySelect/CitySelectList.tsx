@@ -1,4 +1,5 @@
 import type { WeatherResponse } from "../../../../../type/WeatherResponse";
+import { getLocalTime } from "../../../../../util/timeUtil";
 import "./CitySelectList.css";
 
 export default function CitySelectList({
@@ -27,10 +28,7 @@ export default function CitySelectList({
             <div className="city-select-item-header-left">
               <div className="city-select-item-name">{weather.name}</div>
               <div className="city-select-item-time">
-                {new Date(weather.dt * 1000).toLocaleTimeString("ko-KR", {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                })}
+                {getLocalTime(weather.dt, weather.timezone)}
               </div>
             </div>
             <div className="city-select-item-header-right">

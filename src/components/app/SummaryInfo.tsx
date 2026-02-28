@@ -1,4 +1,5 @@
 import type { WeatherResponse } from "../../type/WeatherResponse";
+import { getLocalTime } from "../../util/timeUtil";
 import "./SummaryInfo.css";
 
 export default function SummaryInfo({
@@ -9,6 +10,10 @@ export default function SummaryInfo({
   const iconUrl = `https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`;
   return (
     <div className="summary-info">
+      <p className="time">
+        {/* dt + timezone : 해당 도시의 현지 시각을 “UTC처럼” 표현한 값 */}
+        {weather && getLocalTime(weather.dt, weather.timezone)}
+      </p>
       <p className="temperature">{weather?.main.temp}°C</p>
       <img src={iconUrl} alt={weather?.weather[0].description} />
       <p className="weather-description">{weather?.weather[0].description}</p>

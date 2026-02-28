@@ -11,7 +11,7 @@ export interface WeatherResponse {
       main: string; // 날씨 상태 (ex: "Clear", "Clouds", "Rain", "Snow", "Thunderstorm", "Drizzle", "Mist", "Smoke", "Haze", "Dust", "Fog", "Sand", "Ash", "Squall", "Tornado")
       description: string; // 날씨 설명 (ex: "clear sky", "few clouds", "scattered clouds", "broken clouds", "shower rain", "rain", "thunderstorm", "snow", "mist")
       icon: string; // 날씨 아이콘 (ex: "01d", "01n", "02d", "02n", "03d", "03n", "04d", "04n", "09d", "09n", "10d", "10n", "13d", "13n")
-    }
+    },
   ];
   // 기반 정보 (기반 정보)
   base: string;
@@ -37,7 +37,7 @@ export interface WeatherResponse {
   clouds: {
     all: number; // 구름 정도 (ex: 50, 50, 50, 50, 50)
   };
-  // 날짜 및 시간 정보 (날짜 및 시간)
+  //  UTC 기준 Unix timestamp (초)
   dt: number;
   // 시스템 정보 (시스템 유형, 시스템 ID, 국가, 일출 시간, 일몰 시간)
   sys: {
@@ -47,8 +47,8 @@ export interface WeatherResponse {
     sunrise: number; // 일출 시간 (ex: 1714281600, 1714281600, 1714281600, 1714281600, 1714281600)
     sunset: number; // 일몰 시간 (ex: 1714281600, 1714281600, 1714281600, 1714281600, 1714281600)
   };
-  // 시간대 정보 (시간대)
-  timezone: number; // 시간대 (ex: 9, 9, 9, 9, 9)
+  //  UTC와의 시차(초), 예: 서울 32400, 뉴욕 -18000
+  timezone: number; // 서울 32400, 뉴욕 -18000
   // 도시 ID (도시 ID)
   id: number; // 도시 ID (ex: 1835841, 1835841, 1835841, 1835841, 1835841)
   // 도시 이름 (도시 이름)
