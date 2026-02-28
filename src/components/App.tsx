@@ -14,7 +14,7 @@ function App() {
     null,
   );
 
-  const [cities, _] = useState<string[]>(["seoul"]);
+  const [cities, setCities] = useState<string[]>(["seoul"]);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -41,7 +41,7 @@ function App() {
       <City />
       <SummaryInfo weather={weather} />
       <ForecastInfo forecast4days={forecast4days} />
-      <Menu weather={weather} cities={cities} />
+      <Menu weather={weather} cities={cities} setCities={setCities} />
     </div>
   );
 }

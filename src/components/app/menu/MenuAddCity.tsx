@@ -1,7 +1,13 @@
 import { useState } from "react";
 import CitySelect from "./menuAddCity/CitySelect";
 
-export default function MenuAddCity({ cities }: { cities: string[] }) {
+export default function MenuAddCity({
+  cities,
+  setCities,
+}: {
+  cities: string[];
+  setCities: React.Dispatch<React.SetStateAction<string[]>>;
+}) {
   const [isShowCitySelect, setIsShowCitySelect] = useState(false);
 
   const selectCity = () => {
@@ -21,7 +27,7 @@ export default function MenuAddCity({ cities }: { cities: string[] }) {
       >
         도시 검색
       </div>
-      {isShowCitySelect && <CitySelect cities={cities} />}
+      {isShowCitySelect && <CitySelect cities={cities} setCities={setCities} />}
     </>
   );
 }
