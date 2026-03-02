@@ -88,7 +88,7 @@ function App() {
     return () => {
       element.removeEventListener("wheel", handleWheel);
     };
-  }, []);
+  }, [cities, selectedCityIndex]);
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -109,14 +109,13 @@ function App() {
         return;
       }
       const data = await api.getforecast5days3hours(cities[selectedCityIndex]);
-      console.log(data);
       setForecast4days(data);
     };
     fetchForecast5days3hours();
 
     // 의존성 배열이 비어있으면 컴포넌트가 마운트될 때 한 번만 실행
     // 의존성 배열이 있으면 의존성 배열이 변경될 때 실행
-  }, [selectedCityIndex]);
+  }, [selectedCityIndex, cities]);
 
   return (
     <>
@@ -128,7 +127,7 @@ function App() {
           setIsShowCitySelect={setIsShowCitySelect}
         />
       ) : (
-        <div className="app" ref={swipeRef}>
+        <div className="main-container" ref={swipeRef}>
           <div className="title">Weather App</div>
           <City selectedCityName={cities[selectedCityIndex]} />
           <SummaryInfo weather={weather} />

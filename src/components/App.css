@@ -6,13 +6,14 @@
   width: 100%;
 }
 
-.app {
+.main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 1em;
 }
+
 .title {
   font-size: 2em;
   font-weight: bold;
