@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import type { ForecastResponse } from "../../type/ForecastResponse";
+import type { ForecastResponse } from "../../../type/ForecastResponse";
 import "./ForecastInfo.css";
 
 export default function ForecastInfo({

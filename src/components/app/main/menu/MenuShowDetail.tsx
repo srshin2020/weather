@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DetailInfo from "./menuShowDetail/DetailInfo";
-import type { WeatherResponse } from "../../../type/WeatherResponse";
+import type { WeatherResponse } from "../../../../type/WeatherResponse";
 
 export default function MenuShowDetail({
   weather,

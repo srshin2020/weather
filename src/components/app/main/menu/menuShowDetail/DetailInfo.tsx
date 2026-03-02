@@ -1,4 +1,4 @@
-import type { WeatherResponse } from "../../../../type/WeatherResponse";
+import type { WeatherResponse } from "../../../../../type/WeatherResponse";
 import "./DetailInfo.css";
 
 export default function DetailInfo({
