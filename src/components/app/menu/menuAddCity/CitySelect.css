@@ -1,19 +1,21 @@
 .city-select-overlay {
   position: fixed;
+  background-color: green;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 10;
   padding: 10px;
-  background-color: rgb(63, 61, 61);
   justify-content: center;
-  pointer-events: none; /* 배경 클릭 통과 */
   overflow-y: auto;
   overflow-x: auto;
   /* 스크롤바 숨기기 */
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;
+  -ms-overflow-style: none; /* IE/Edge: 스크롤바 숨김 */
+  scroll-behavior: smooth; /* 부드러운 스크롤 */
+  -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+  overscroll-behavior-x: contain; /* 스크롤 바뀌지 않게 */
 }
 
 .city-select-overlay > * {
