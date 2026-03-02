@@ -102,12 +102,8 @@ export default function Main({
       <div
         className="main-container-inner"
         ref={swipeRef}
-        onTouchStart={(e) => {
-          handleTouchStart(e);
-        }}
-        onTouchEnd={(e) => {
-          handleTouchEnd(e);
-        }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
       >
         <div className="title">Weather App</div>
         <City selectedCityName={cities[selectedCityIndex]} />
