@@ -20,15 +20,12 @@ export default function CitySelect({
 
   useEffect(() => {
     const fetchWeatherList = async () => {
-      const weathers: WeatherResponse[] = [];
-      for (const city of cities) {
-        const data = await api.getWeather(city);
-        if (data) {
-          // setWeatherList((prev) => [...prev, data]);를 호출하면 개발자 도구에서 두번 렌더링되는 것을 막기 위해 push를 사용
-          weathers.push(data);
-        }
-      }
-      setWeatherList(weathers);
+      const results = await Promise.all(
+        cities.map((city) => api.getWeather(city)),
+      );
+      setWeatherList(
+        results.filter((data): data is WeatherResponse => data != null),
+      );
     };
     fetchWeatherList();
 
