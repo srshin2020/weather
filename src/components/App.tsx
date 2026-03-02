@@ -38,7 +38,7 @@ function App() {
   const swipeRef = useRef<HTMLDivElement>(null);
 
   // 스크롤 누적 값
-  const wheelAccumlator = useRef<number>(0);
+  const wheelAccumulator = useRef<number>(0);
   // 마지막 스크롤 시간
   const lastScrollTime = useRef<number>(0);
 
@@ -47,7 +47,9 @@ function App() {
   // 선택된 도시 인덱스 참조를 업데이트
   selectedCityIndexRef.current = selectedCityIndex;
 
+  // 도시 선택 창이 열려있지 않을 때만 스크롤 이벤트 처리
   useEffect(() => {
+    if (isShowCitySelect) return;
     const element = swipeRef.current;
     if (!element) return;
 
@@ -65,22 +67,22 @@ function App() {
       if (timeSinceLastScroll < 300) return;
 
       // wheel의 delta x를 누적
-      wheelAccumlator.current += event.deltaX;
+      wheelAccumulator.current += event.deltaX;
 
-      if (wheelAccumlator.current > 100) {
+      if (wheelAccumulator.current > 100) {
         if (selectedCityIndexRef.current < citiesRef.current.length - 1) {
           setSelectedCityIndex((prev) =>
             Math.min(prev + 1, citiesRef.current.length - 1),
           );
         }
         lastScrollTime.current = now;
-        wheelAccumlator.current = 0;
-      } else if (wheelAccumlator.current < -100) {
+        wheelAccumulator.current = 0;
+      } else if (wheelAccumulator.current < -100) {
         if (selectedCityIndexRef.current > 0) {
           setSelectedCityIndex((prev) => Math.max(prev - 1, 0));
         }
         lastScrollTime.current = now;
-        wheelAccumlator.current = 0;
+        wheelAccumulator.current = 0;
       }
     };
 
@@ -88,32 +90,26 @@ function App() {
     return () => {
       element.removeEventListener("wheel", handleWheel);
     };
-  }, [cities, selectedCityIndex]);
+  }, [isShowCitySelect]);
 
   useEffect(() => {
     const fetchWeather = async () => {
-      if (selectedCityIndex < 0 || selectedCityIndex >= cities.length) {
-        console.log("selectedCityIndex is out of range", selectedCityIndex);
-        return;
-      }
       const data = await api.getWeather(cities[selectedCityIndex]);
       if (data) {
         setWeather(data);
       }
     };
-    fetchWeather();
 
     const fetchForecast5days3hours = async () => {
-      if (selectedCityIndex < 0 || selectedCityIndex >= cities.length) {
-        console.log("selectedCityIndex is out of range", selectedCityIndex);
-        return;
-      }
       const data = await api.getforecast5days3hours(cities[selectedCityIndex]);
       setForecast4days(data);
     };
-    fetchForecast5days3hours();
+    if (selectedCityIndex < 0 || selectedCityIndex >= cities.length) {
+      console.log("selectedCityIndex is out of range", selectedCityIndex);
+      return;
+    }
+    Promise.all([fetchForecast5days3hours(), fetchWeather()]);
 
-    // 의존성 배열이 비어있으면 컴포넌트가 마운트될 때 한 번만 실행
     // 의존성 배열이 있으면 의존성 배열이 변경될 때 실행
   }, [selectedCityIndex, cities]);
 
@@ -127,10 +123,12 @@ function App() {
           setIsShowCitySelect={setIsShowCitySelect}
         />
       ) : (
-        <div className="main-container" ref={swipeRef}>
-          <div className="title">Weather App</div>
-          <City selectedCityName={cities[selectedCityIndex]} />
-          <SummaryInfo weather={weather} />
+        <div className="main-container">
+          <div className="main-container-inner" ref={swipeRef}>
+            <div className="title">Weather App</div>
+            <City selectedCityName={cities[selectedCityIndex]} />
+            <SummaryInfo weather={weather} />
+          </div>
           <ForecastInfo forecast4days={forecast4days} />
           <Menu weather={weather} setIsShowCitySelect={setIsShowCitySelect} />
         </div>

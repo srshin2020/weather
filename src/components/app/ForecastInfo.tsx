@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import type { ForecastResponse } from "../../type/ForecastResponse";
 import "./ForecastInfo.css";
 
@@ -6,11 +7,21 @@ export default function ForecastInfo({
 }: {
   forecast4days: ForecastResponse | null;
 }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({
+        left: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [forecast4days]);
+
   if (!forecast4days) {
     return null; // 데이터가 없으면 아무것도 렌더링하지 않음
   }
   return (
-    <div className="forecast-info card">
+    <div className="forecast-info card" ref={scrollRef}>
       {forecast4days?.list.map((item, index) => (
         <div key={index} className="forecast-info-item">
           <div>
