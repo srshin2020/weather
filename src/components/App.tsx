@@ -27,17 +27,6 @@ function App() {
   const [isShowCitySelect, setIsShowCitySelect] = useState<boolean>(false);
 
   // ref 관리
-  // 도시 리스트 참조
-  // 선택된 도시 인덱스 참조
-  const citiesRef = useRef<string[]>(cities);
-  // 선택된 도시 인덱스 참조
-  const selectedCityIndexRef = useRef<number>(selectedCityIndex);
-
-  // 도시 리스트 참조와 선택된 도시 인덱스 참조를 업데이트
-  citiesRef.current = cities;
-  // 선택된 도시 인덱스 참조를 업데이트
-  selectedCityIndexRef.current = selectedCityIndex;
-
   useEffect(() => {
     const fetchWeather = async () => {
       const data = await api.getWeather(cities[selectedCityIndex]);

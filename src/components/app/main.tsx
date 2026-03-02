@@ -29,6 +29,9 @@ export default function Main({
   // 스와이프 참조
   const swipeRef = useRef<HTMLDivElement>(null);
 
+  selectedCityIndexRef.current = selectedCityIndex;
+  citiesRef.current = cities;
+
   // 스크롤 누적 값
   const wheelAccumulator = useRef<number>(0);
   // 마지막 스크롤 시간
@@ -42,7 +45,6 @@ export default function Main({
 
     const handleWheel = (event: WheelEvent) => {
       event.preventDefault();
-
       // 도시 리스트가 2개 미만이면 리턴
       if (citiesRef.current.length < 2) return;
 
@@ -55,6 +57,7 @@ export default function Main({
 
       // wheel의 delta x를 누적
       wheelAccumulator.current += event.deltaX;
+      console.log("wheelAccumulator", wheelAccumulator.current);
 
       if (wheelAccumulator.current > 100) {
         if (selectedCityIndexRef.current < citiesRef.current.length - 1) {
