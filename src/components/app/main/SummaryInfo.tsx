@@ -1,5 +1,5 @@
-import type { WeatherResponse } from "../../type/WeatherResponse";
-import { getLocalTime } from "../../util/timeUtil";
+import type { WeatherResponse } from "../../../type/WeatherResponse";
+import { getLocalTime } from "../../../util/timeUtil";
 import "./SummaryInfo.css";
 
 export default function SummaryInfo({

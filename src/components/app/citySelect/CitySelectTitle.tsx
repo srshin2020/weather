@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./CitySelectTitle.css";
-import { CITY_LIST } from "../../../../../type/cityList";
+import { CITY_LIST } from "../../../type/cityList";
 
 export default function CitySelectTitle({
   setCities,

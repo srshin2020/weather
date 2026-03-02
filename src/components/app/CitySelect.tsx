@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import api from "../../../../util/api";
+import api from "../../util/api";
 import "./CitySelect.css";
-import type { WeatherResponse } from "../../../../type/WeatherResponse";
+import type { WeatherResponse } from "../../type/WeatherResponse";
 import CitySelectTitle from "./citySelect/CitySelectTitle";
 import CitySelectList from "./citySelect/CitySelectList";
 

@@ -1,4 +1,4 @@
-import type { WeatherResponse } from "../../type/WeatherResponse";
+import type { WeatherResponse } from "../../../type/WeatherResponse";
 import MenuShowDetail from "./menu/MenuShowDetail";
 import "./Menu.css";
 
