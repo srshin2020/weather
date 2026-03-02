@@ -27,15 +27,11 @@ export default function CitySelectTitle({
           (prev - 1 + recommendedCities.length) % recommendedCities.length,
       );
     } else if (e.key === "Enter") {
-      console.log(
-        recommendedCities[highlightedCityIndex],
-        highlightedCityIndex,
-      );
       // 추천 도시가 없으면 도시를 추가하지 않음
       if (recommendedCities[highlightedCityIndex] === undefined) {
         return;
       }
-      setSearchCity("");
+      setSearchCity(recommendedCities[highlightedCityIndex]);
       setRecommendedCities([]);
       // 도시를 추가하나 중복은 추가하지 않음
       setCities((prev) => {
@@ -61,6 +57,17 @@ export default function CitySelectTitle({
     setHighlightedCityIndex(0);
   };
 
+  const handleClick = (city: string) => {
+    setSearchCity(city);
+    setRecommendedCities([]);
+    setCities((prev) => {
+      if (prev.includes(city)) {
+        return prev;
+      }
+      return [...prev, city];
+    });
+  };
+
   return (
     <div className="city-select-title">
       <div className="city-select-title-recommended-cities">
@@ -73,6 +80,7 @@ export default function CitySelectTitle({
                 (index === highlightedCityIndex ? " highlighted" : "")
               }
               key={index}
+              onClick={() => handleClick(city)}
             >
               {city}
             </div>
@@ -80,11 +88,12 @@ export default function CitySelectTitle({
       </div>
       <input
         className="city-select-title-input"
-        type="text"
+        type="search"
         value={searchCity}
         onKeyDown={handleKeyDown}
         onChange={handleSearchCity}
         placeholder="도시 검색"
+        enterKeyHint="search"
       />
     </div>
   );
