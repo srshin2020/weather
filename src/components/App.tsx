@@ -114,6 +114,26 @@ function App() {
     // 의존성 배열이 있으면 의존성 배열이 변경될 때 실행
   }, [selectedCityIndex, cities]);
 
+  const touchStartX = useRef<number>(0);
+  const handleTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const touchEndX = event.changedTouches[0].clientX;
+    const touchDeltaX = touchEndX - touchStartX.current;
+
+    if (touchDeltaX < -10) {
+      if (selectedCityIndexRef.current < citiesRef.current.length - 1) {
+        setSelectedCityIndex((prev) => prev + 1);
+      }
+    } else if (touchDeltaX > 10) {
+      if (selectedCityIndexRef.current > 0) {
+        setSelectedCityIndex((prev) => prev - 1);
+      }
+    }
+  };
+
   return (
     <>
       {isShowCitySelect ? (
@@ -125,7 +145,16 @@ function App() {
         />
       ) : (
         <div className="main-container">
-          <div className="main-container-inner" ref={swipeRef}>
+          <div
+            className="main-container-inner"
+            ref={swipeRef}
+            onTouchStart={(e) => {
+              handleTouchStart(e);
+            }}
+            onTouchEnd={(e) => {
+              handleTouchEnd(e);
+            }}
+          >
             <div className="title">Weather App</div>
             <City selectedCityName={cities[selectedCityIndex]} />
             <SummaryInfo weather={weather} />
