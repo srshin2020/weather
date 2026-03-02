@@ -79,7 +79,7 @@ export default function CitySelectList({
             onClick={() => handleDelete(index)}
             className="city-select-item-delete"
           >
-            <img src="/delete.png" alt="삭제" />
+            <img src={`${import.meta.env.BASE_URL}delete.png`} alt="삭제" />
           </div>
         </div>
       ))}

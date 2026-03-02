@@ -1,5 +1,4 @@
 .city-select-item-container {
-  overflow: hidden;
   display: flex;
   width: calc(100% + 60px);
   gap: 10px;
