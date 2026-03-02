@@ -11,6 +11,7 @@ import CitySelect from "./app/menu/menuAddCity/CitySelect";
 
 function App() {
   //  state 관리
+
   // 선택된 도시 인덱스
   const [selectedCityIndex, setSelectedCityIndex] = useState<number>(0);
   // 선택된 도시의 날씨 정보
