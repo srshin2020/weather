@@ -12,6 +12,13 @@ OpenWeatherMap API를 활용한 다중 도시 날씨 조회 웹 앱입니다.
   - 5 Day / 3 Hour Forecast
 - **배포**: GitHub Pages (GitHub Actions)
 
+## Demo URL
+https://srshin2020.github.io/weather/
+
+## 주요 화면
+<img width="584" height="820" alt="스크린샷 2026-07-01 오후 8 31 15" src="https://github.com/user-attachments/assets/a818a146-88e4-4f7c-bc9b-737c0a3dda72" />
+
+
 ## 주요 기능
 
 ### 메인 화면
